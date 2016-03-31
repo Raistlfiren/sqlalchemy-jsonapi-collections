@@ -156,7 +156,7 @@ class FilterParameter(object):
         """
         errors = []
         filters = []
-        for key, value in parameters.iteritems():
+        for key, value in parameters.items():
             field = re.compile(r'filter\[(.*)\]', re.DOTALL).search(key)
             if field is None:
                 continue
