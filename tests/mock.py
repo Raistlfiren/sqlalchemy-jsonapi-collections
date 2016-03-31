@@ -107,7 +107,7 @@ class SchemaRelationship(fields.Relationship):
         elif (isinstance(self.related_schema, type) and
                 issubclass(self.related_schema, SchemaABC)):
             self.__schema = self.related_schema
-        elif isinstance(self.related_schema, basestring):
+        elif isinstance(self.related_schema, str):
             if self.related_schema == 'self':
                 parent_class = self.parent.__class__
                 self.__schema = parent_class
