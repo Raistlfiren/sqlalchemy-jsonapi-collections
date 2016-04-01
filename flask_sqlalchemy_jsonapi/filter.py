@@ -176,3 +176,16 @@ class FilterParameter(object):
         for value in values:
             query = query.filter(value.filter)
         return query
+
+    @staticmethod
+    def filter_core_by(select, values):
+        """Apply a series of `FilterParameter` instances as query filters.
+
+        :param select: `SQLAlchemy` select object.
+        :param values: List of `FilterParameter` instances.
+        """
+        where = []
+        for value in values:
+                where.append(value.filter)
+        query = select.where(and_(*where))
+        return query
